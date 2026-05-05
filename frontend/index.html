@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSpend Analyzer | Future Finance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SmartSpend Analyzer</h1>
+            <p>Intelligence-driven expense tracking and future spending predictions</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="card stat-card">
+                <div class="stat-label">Total Spent</div>
+                <div id="total-spent" class="stat-value">$0.00</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Daily Average</div>
+                <div id="avg-daily" class="stat-value">$0.00</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-label">Primary Category</div>
+                <div id="top-category" class="stat-value">N/A</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-col">
+                <div class="card">
+                    <h2>Add Expense</h2>
+                    <form id="expense-form" style="margin-top: 1.5rem;">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" id="desc" placeholder="e.g. Weekly Groceries" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Amount ($)</label>
+                            <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="category" required>
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Utilities">Utilities</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        <button type="submit">Add Expense</button>
+                    </form>
+                </div>
+
+                <div class="card" style="margin-top: 2rem;">
+                    <h2>Smart Suggestions</h2>
+                    <div id="suggestions" class="suggestions-list" style="margin-top: 1.5rem;">
+                        <p class="text-muted">Analyzing your spending habits...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="card">
+                    <h2>Spending Analysis</h2>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 2rem;">
+                    <h2>Future Predictions (Next 7 Days)</h2>
+                    <div id="predictions-list" style="margin-top: 1.5rem;">
+                        <p class="text-muted">Calculating forecast model...</p>
+                    </div>
+                    <div class="chart-container" style="height: 200px; margin-top: 2rem;">
+                        <canvas id="predictionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
